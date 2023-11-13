@@ -1,0 +1,218 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            
+         
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            color:darkgoldenrod;
+        }
+
+        h3, h1 {
+            color: black;
+        }
+
+        input {
+            border-radius: 15px;
+            opacity: .6;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Corrida de Kart</h1>
+
+    <script>
+        var body = document.querySelector("body")
+
+
+        for (c = 1; c <= 10; c++) {
+            body.innerHTML += `<p><h3>Kart ${c}: </h3> Piloto:<input type="text" id="p${c}"> 1°volta: <input type="number" id="p${c}v1"> 2°volta: <input type="number" id="p${c}v2">3°volta: <input type="number" id="p${c}v3"></p>`
+        }
+
+        body.innerHTML += "<button onclick='final()'>Ver resultado</button>"
+
+
+
+
+
+        function final() {
+
+            var vet = []
+
+            for (c = 1; c <= 10; c++) {
+                vet[c - 1] = (Number(document.querySelector(`#p${c}v1`).value) + Number(document.querySelector(`#p${c}v2`).value) + Number(document.querySelector(`#p${c}v3`).value)) / 3
+            }
+
+            var temp = 0
+            var car
+
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp) {
+                    car = c
+                    temp = vet[c]
+                }
+            }
+
+            var temp2 = 0
+            var car2 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp2 && c != car) {
+                    car2 = c
+                    temp2 = vet[c]
+                }
+            }
+
+            var temp3 = 0
+            var car3 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp3 && c != car && c != car2) {
+                    car3 = c
+                    temp3 = vet[c]
+                }
+            }
+
+            var temp4 = 0
+            var car4 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp4 && c != car && c != car2 && c != car3) {
+                    car4 = c
+                    temp4 = vet[c]
+                }
+            }
+
+            var temp5 = 0
+            var car5 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp5 && c != car && c != car2 && c != car3 && c != car4) {
+                    car5 = c
+                    temp5 = vet[c]
+                }
+            }
+
+            var temp6 = 0
+            var car6 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp6 && c != car && c != car2 && c != car3 && c != car4 && c != car5) {
+                    car6 = c
+                    temp6 = vet[c]
+                }
+            }
+
+            var temp7 = 0
+            var car7 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp7 && c != car && c != car2 && c != car3 && c != car4 && c != car5 && c != car6) {
+                    car7 = c
+                    temp7 = vet[c]
+                }
+            }
+
+            var temp8 = 0
+            var car8 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp8 && c != car && c != car2 && c != car3 && c != car4 && c != car5 && c != car6 && c != car7) {
+                    car8 = c
+                    temp8 = vet[c]
+                }
+            }
+
+            var temp9 = 0
+            var car9 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp9 && c != car && c != car2 && c != car3 && c != car4 && c != car5 && c != car6 && c != car7 && c != car8) {
+                    car9 = c
+                    temp9 = vet[c]
+                }
+            }
+
+            var temp10 = 0
+            var car10 = 0
+
+            for (c = 0; c < 10; c++) {
+                if (vet[c] > temp10 && c != car && c != car2 && c != car3 && c != car4 && c != car5 && c != car6 && c != car7 && c != car8 && c != car9) {
+                    car10 = c
+                    temp10 = vet[c]
+                }
+            }
+
+            var vr = Infinity;
+            var vrp = "";
+            var vl = 0;
+            var vlp = "";
+
+            for (c = 1; c <= 10; c++) {
+                for (v = 1; v <= 3; v++) {
+                    var tempoVolta = Number(document.getElementById(`p${c}v${v}`).value);
+
+                    if (tempoVolta < vr) {
+                        vr = tempoVolta;
+                        vrp = document.getElementById(`p${c}`).value;
+                    }
+
+                    if (tempoVolta > vl) {
+                        vl = tempoVolta;
+                        vlp = document.getElementById(`p${c}`).value;
+                    }
+                }
+            }
+
+            nomes = [
+            document.getElementById(`p${car10 + 1}`).value,
+            document.getElementById(`p${car9 + 1}`).value,
+            document.getElementById(`p${car8 + 1}`).value,
+            document.getElementById(`p${car7 + 1}`).value,
+            document.getElementById(`p${car6 + 1}`).value,
+            document.getElementById(`p${car5 + 1}`).value,
+            document.getElementById(`p${car4 + 1}`).value,
+            document.getElementById(`p${car3 + 1}`).value,
+            document.getElementById(`p${car2 + 1}`).value,
+            document.getElementById(`p${car + 1}`).value
+            ]
+
+            body.innerHTML += `
+            <p>Largara em primeiro: ${nomes[0]}, tempo médio: ${temp10}</p>
+            <p>Largara em ultimo: ${nomes[9]}, tempo médio: ${temp}</p>
+        
+            <p>Volta mais rápida: ${vrp} com um tempo de ${vr}<p>
+            <p>Volta mais lenta: ${vlp} com um tempo de ${vl}<p>
+            `
+
+            body.innerHTML += "<h3>Grid</h3>"
+
+            body.innerHTML += `
+            <p>1°| Kart ${car10 + 1} | Piloto: ${nomes[0]}</p>
+            <p>2°| Kart ${car9 + 1} | Piloto: ${nomes[1]}</p>
+            <p>3°| Kart ${car8 + 1} | Piloto: ${nomes[2]}</p>
+            <p>4°| Kart ${car7 + 1} | Piloto: ${nomes[3]}</p>
+            <p>5°| Kart ${car6 + 1} | Piloto: ${nomes[4]}</p>
+            <p>6°| Kart ${car5 + 1} | Piloto: ${nomes[5]}</p>
+            <p>7°| Kart ${car4 + 1} | Piloto: ${nomes[6]}</p>
+            <p>8°| Kart ${car3 + 1} | Piloto: ${nomes[7]}</p>
+            <p>9°| Kart ${car2 + 1} | Piloto: ${nomes[8]}</p>
+            <p>10°| Kart ${car + 1} | Piloto: ${nomes[9]}</p>
+            `
+        }
+
+
+    </script>
+</body>
+
+</html>
